@@ -1,0 +1,20 @@
+<div class="row">
+
+  <div class="col">
+    <div>
+      <button (click)="prevState()" [disabled]="isFirstStep()">Prev step</button>
+      <button (click)="nextStep()" [disabled]="isLastStep()">Next step</button>
+    </div>
+
+    <p>Step {{stepperState.state().currentStep + 1}} of {{steps.length}}</p>
+
+    <div class="">
+      <ng-container *ngComponentOutlet="steps[stepperState.state().currentStep]"/>
+    </div>
+  </div>
+
+  <div class="col">
+    <app-steps-summary/>
+  </div>
+
+</div>

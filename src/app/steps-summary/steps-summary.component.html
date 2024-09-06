@@ -1,0 +1,8 @@
+<h3>Steps Summary</h3>
+
+@for (step of stepsForms(); track $index) {
+  <h6>{{step.title}}</h6>
+
+  <p>{{step.data | json}}</p>
+}
+
