@@ -32,11 +32,19 @@ export class StepperComponent {
   nextStep() {
     console.log(this.stepperState.state());
     this.stepperState.setCurrentStep(this.stepperState.state().currentStep + 1);
+
+    /*
+      other steps button disabled logic can be added here
+    */
   }
 
   prevState() {
     console.log(this.stepperState.state());
     this.stepperState.setCurrentStep(this.stepperState.state().currentStep - 1);
+
+    /*
+      other steps button disabled logic can be added here
+    */
   }
 
   isFirstStep() {

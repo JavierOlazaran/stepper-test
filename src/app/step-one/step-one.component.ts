@@ -9,8 +9,13 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
   templateUrl: './step-one.component.html',
   styleUrl: './step-one.component.scss'
 })
+/*
+  We could have an interface or an abstract class to define the structure of the steps
+ */
 export class StepOneComponent implements OnInit {
   stepperState = inject(StepperStateService);
+
+  STEP_NAME = 'stepOne';
 
   form = new FormGroup({
     name: new FormControl(''),
@@ -18,17 +23,17 @@ export class StepOneComponent implements OnInit {
   });
 
   constructor() {
-    if (!this.stepperState.state().steps['stepOne']) {
-      this.stepperState.addStep('stepOne', this.form.getRawValue());
+    if (!this.stepperState.state().steps[this.STEP_NAME]) {
+      this.stepperState.addStep(this.STEP_NAME, this.form.getRawValue());
     }
     else {
-      this.form.setValue(this.stepperState.state().steps['stepOne'], { emitEvent: false });
+      this.form.setValue(this.stepperState.state().steps[this.STEP_NAME], { emitEvent: false });
     }
   }
 
   ngOnInit() {
     this.form.valueChanges.subscribe(value => {
-      this.stepperState.setStepFormValue('stepOne', value);
+      this.stepperState.setStepFormValue(this.STEP_NAME, value);
 
       console.log(this.stepperState.state());
     });

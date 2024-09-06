@@ -9,6 +9,9 @@ import { StepperStateService } from '../services/stepper-state.service';
   templateUrl: './step-two.component.html',
   styleUrl: './step-two.component.scss'
 })
+/*
+  We could have an interface or an abstract class to define the structure of the steps
+ */
 export class StepTwoComponent implements OnInit {
   readonly STEP_NAME = 'StepTwo';
   stepperState = inject(StepperStateService);
