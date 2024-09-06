@@ -42,9 +42,6 @@ export class StepperStateService {
    * @param step the value of the step
    */
   addStep(key: string, step: any) {
-    console.log(this.state());
-
     this.state.set({ ...this.state(), steps: { ...this.state().steps, [key]: step } });
-    console.log(this.state());
   }
 }
