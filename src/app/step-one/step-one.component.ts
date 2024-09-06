@@ -34,8 +34,6 @@ export class StepOneComponent implements OnInit {
   ngOnInit() {
     this.form.valueChanges.subscribe(value => {
       this.stepperState.setStepFormValue(this.STEP_NAME, value);
-
-      console.log(this.stepperState.state());
     });
   }
 }
