@@ -30,7 +30,6 @@ export class StepperComponent {
   ];
 
   nextStep() {
-    console.log(this.stepperState.state());
     this.stepperState.setCurrentStep(this.stepperState.state().currentStep + 1);
 
     /*
@@ -39,7 +38,6 @@ export class StepperComponent {
   }
 
   prevState() {
-    console.log(this.stepperState.state());
     this.stepperState.setCurrentStep(this.stepperState.state().currentStep - 1);
 
     /*
