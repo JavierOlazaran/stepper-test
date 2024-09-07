@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { StepperStateService } from '../services/stepper-state.service';
 
@@ -12,7 +12,7 @@ import { StepperStateService } from '../services/stepper-state.service';
 /*
   We could have an interface or an abstract class to define the structure of the steps
  */
-export class StepThreeComponent {
+export class StepThreeComponent implements OnInit {
   stepperState = inject(StepperStateService);
 
   STEP_NAME = 'stepThree';
@@ -29,5 +29,11 @@ export class StepThreeComponent {
     else {
       this.form.setValue(this.stepperState.state().steps[this.STEP_NAME], { emitEvent: false });
     }
+  }
+
+  ngOnInit() {
+    this.form.valueChanges.subscribe(value => {
+      this.stepperState.setStepFormValue(this.STEP_NAME, value);
+    });
   }
 }

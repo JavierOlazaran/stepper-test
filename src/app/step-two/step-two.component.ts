@@ -13,7 +13,7 @@ import { StepperStateService } from '../services/stepper-state.service';
   We could have an interface or an abstract class to define the structure of the steps
  */
 export class StepTwoComponent implements OnInit {
-  readonly STEP_NAME = 'StepTwo';
+  readonly STEP_NAME = 'stepTwo';
   stepperState = inject(StepperStateService);
 
   form = new FormGroup({
