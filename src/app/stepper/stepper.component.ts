@@ -23,6 +23,7 @@ import { StepsSummaryComponent } from '../steps-summary/steps-summary.component'
 export class StepperComponent {
   stepperState = inject(StepperStateService);
 
+  // This allows to add or remove a step just by adding or removing it from the array
   steps: any[] = [
     StepOneComponent,
     StepTwoComponent,
